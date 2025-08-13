@@ -1,13 +1,13 @@
 
-def select(*options):
+def select(*args):
 
-    title = ''
+    question = args[0]
 
-    for option in options:
-
-        # IF option is the first option, make option the title.
-        if option == options[0]:
-            title = option
-            continue
+    while True:
+        print(question)
+        for arg in args:
+            if arg != question:
+                print(arg)
+        
 
         
