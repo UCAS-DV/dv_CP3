@@ -11,7 +11,7 @@ def ask_question(question, answer, options):
             i += 1
             print(f"{i}. {option}")
 
-        user_answer = int(input('What is your answer? '))
+        user_answer = int(input('What is your answer (Enter Number)? '))
 
         try:
             if user_answer == int(answer):
