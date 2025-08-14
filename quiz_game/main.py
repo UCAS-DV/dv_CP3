@@ -1,38 +1,22 @@
 import csv
+import quiz
+import random
 
-def get_questions():
+def give_quiz(questions):
 
-    questions = []
+    total_points = len(questions)
+    points = 0
 
-    with open('quiz_game\questions.csv', 'r') as question_file:
-        question_reader = csv.reader(question_file)
+    for question in questions:
+        points += quiz.ask_question(question['question'], question['answer'], question['options'])
 
-        for question in question_reader:
-
-            # Checks if question is actually header
-            if question != ['question','option1','option2','option3','option4','answer']:
-                
-                question_dict = {
-                    'question': question[0],
-                    'option1': question[1],
-                    'option2': question[2],
-                    'option3': question[3],
-                    'option4': question[4],
-                    'answer': question[5]
-                }
-
-                questions.append(question_dict)
-
-    return questions 
-
+    return f'{points}/{total_points}'
 
 def main():
     while True:
 
-        print("-~-~-~-~-~-~- The Ultimate Quiz of Life -~-~-~-~-~-~-")
+        questions = quiz.randomize_questions(quiz.get_questions("quiz_game\general_questions.csv"))
 
-        print(get_questions())
-
-        break
+        print(give_quiz(questions))
 
 main()
