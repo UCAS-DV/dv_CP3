@@ -1,6 +1,7 @@
 import csv
 import random
 
+# Asks a question
 def ask_question(question, answer, options):
 
     while True:
@@ -23,6 +24,7 @@ def ask_question(question, answer, options):
         except:
             print('Invalid Input!')
 
+# Gets the questions from the csv and converts them into a dictionaries
 def get_questions(filepath):
 
     questions = []
@@ -45,6 +47,7 @@ def get_questions(filepath):
 
     return questions
 
+# Shuffles the questions
 def randomize_questions(all_questions):
 
     random.shuffle(all_questions)

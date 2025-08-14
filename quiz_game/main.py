@@ -2,6 +2,7 @@ import csv
 import quiz
 import random
 
+# Gives user the question and grades them
 def give_quiz(questions):
 
     total_points = len(questions)
@@ -12,6 +13,7 @@ def give_quiz(questions):
 
     return f'{points}/{total_points}'
 
+# Runs the main menu and enters the quiz
 def main():
     while True:
         print("-~-~-~-~- THE QUIZ GAME -~-~-~-~-")
