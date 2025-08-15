@@ -1,6 +1,10 @@
 import csv
 import random
 
+red = "\033[31m"
+green = "\033[32m"
+reset = "\033[0m"
+
 # Asks a question
 def ask_question(question, answer, options):
 
@@ -16,13 +20,13 @@ def ask_question(question, answer, options):
 
         try:
             if user_answer == int(answer):
-                print('Correct!')
+                print(f'{green}Correct!{reset}')
                 return 1
             else:
-                print('Incorrect (for shame)!')
+                print(f'{red}Incorrect (for shame)!{reset}')
                 return 0
         except:
-            print('Invalid Input!')
+            print(f'{red}Invalid Input!{reset}')
 
 # Gets the questions from the csv and converts them into a dictionaries
 def get_questions(filepath):
