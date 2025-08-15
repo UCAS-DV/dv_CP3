@@ -11,6 +11,7 @@ def ask_question(question, answer, options):
     while True:
         print(question)
 
+        # Lists out the options
         i = 0
         for option in options:
             i += 1
