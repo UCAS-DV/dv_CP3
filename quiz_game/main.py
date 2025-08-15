@@ -1,5 +1,11 @@
-import quiz
+from quiz import ask_question
+from quiz import get_questions
+from quiz import randomize_questions
+from quiz import red
+from quiz import reset
 from quiz_create import create_quiz_menu
+from quiz_create import display_quizzes
+from quiz_create import get_quizzes
 
 # Gives user the question and grades them
 def give_quiz(questions):
@@ -9,7 +15,7 @@ def give_quiz(questions):
 
     for question in questions:
         # If answer is correct, add 1 point, if not, add no points
-        points += quiz.ask_question(question['question'], question['answer'], question['options'])
+        points += ask_question(question['question'], question['answer'], question['options'])
 
     return f'{points}/{total_points}'
 
@@ -30,8 +36,13 @@ def main():
         elif selection == '2':
             create_quiz_menu()
         elif selection == '1':
-            questions = quiz.randomize_questions(quiz.get_questions("quiz_game\quizzes\general_questions.csv"))
 
-            print(give_quiz(questions))
+            display_quizzes(False)
+
+            try:
+                questions = randomize_questions(get_questions(get_quizzes(False)[int(input('What quiz would you like to take? (Enter Number) ')) - 1]))
+                print(give_quiz(questions))
+            except:
+                print(f'{red}Invalid Input{reset}')
 
 main()

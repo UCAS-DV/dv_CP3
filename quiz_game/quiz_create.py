@@ -1,18 +1,31 @@
 import csv
 from quiz import red
+from quiz import green
 from quiz import reset
 from quiz import get_questions
 import os
 from pathlib import Path
 
-def get_quizzes():\
+# Gets all quizzes in quizzes folder
+def get_quizzes(default_quizzes_off):
 
     quiz_filepaths = []
     for file in os.listdir("quiz_game/quizzes"):
-        if str(file) != 'general_questions.csv':
+        if default_quizzes_off:
+            if str(file) != 'general_questions.csv':
+                quiz_filepaths.append(f'quiz_game/quizzes/{str(file)}')
+        else:
             quiz_filepaths.append(f'quiz_game/quizzes/{str(file)}')
 
     return quiz_filepaths
+
+# Displays all quizzes
+def display_quizzes(hide_defaults):
+    i = 0
+    # Lists out quizzes
+    for quiz in get_quizzes(hide_defaults):
+        i += 1
+        print(f'{i}. {quiz}')
 
 # Creates questions
 def create_question(filepath):
@@ -41,6 +54,38 @@ def create_question(filepath):
 
         question_writer.writerow(question)
 
+def list_questions(filepath):
+    i = 0
+    for question in get_questions(filepath):
+        i += 1
+        print(f'{i}. {question['question']}')
+
+        j = 0
+        for option in question['options']:
+            j += 1
+            print(f'    {j}. {option}')
+
+        print(f'{green}    Correct Answer: {question['answer']}{reset}')
+
+def delete_question(question_index, filepath):
+
+    questions = get_questions(filepath)
+    questions.pop(question_index - 1)
+
+    with open(filepath, 'w', newline='') as quiz_file:
+        question_writer = csv.writer(quiz_file)
+
+        question_writer.writerow(['question', 'option1', 'option2', 'option3', 'option4', 'answer'])
+
+        for question in questions:
+            question_writer.writerow([question['question'], 
+                                      question['options'][0], 
+                                      question['options'][1],
+                                      question['options'][2],
+                                      question['options'][3],
+                                      question['answer']])
+
+
 # Menu for creating, deleting, and reading questions
 def modify_quiz(filepath):
     
@@ -48,18 +93,16 @@ def modify_quiz(filepath):
         match input('1. Create Question \n2. Delete Question \n3. Read Questions \n4. Exit \nWhat would you like to do? (Enter Number) '):
             case '1':
                 create_question(filepath)
+
+            case '2':
+                list_questions(filepath)
+                try:
+                    delete_question(int(input("What question would you like to delete? (Enter Number) ")), filepath)
+                except:
+                    print(f'{red}Invalid Input{reset}')
+
             case '3':
-                i = 0
-                for question in get_questions():
-                    i += 1
-                    print(f'{i}. {question['question']}')
-
-                    j = 0
-                    for option in question['options']:
-                        j += 1
-                        print(f'    {j}. {option}')
-
-                    print(f'    {question['answer']}')
+                list_questions(filepath)
 
                 input("If you're done looking, enter anything: ")
 
@@ -95,26 +138,19 @@ def create_quiz_menu():
 
                 modify_quiz(quiz_name)
             case '2':
-                i = 0
-                # Lists out quizzes
-                for quiz in get_quizzes():
-                    i += 1
-                    print(f'{i}. {quiz}')
+                
+                display_quizzes(True)
 
                 try:
-                    modify_quiz(get_quizzes()[int(input('What quiz would you like to modify? (Enter Number) ')) - 1])
+                    modify_quiz(get_quizzes(True)[int(input('What quiz would you like to modify? (Enter Number) ')) - 1])
                 except:
                     print(f'{red}Invalid Input{reset}')
             case '3':
 
-                i = 0
-                # Lists out quizzes
-                for quiz in get_quizzes():
-                    i += 1
-                    print(f'{i}. {quiz}')
+                display_quizzes(True)
 
                 try:
-                    os.remove(get_quizzes()[int(input('What quiz would you like to delete? (Enter Number) ')) - 1])
+                    os.remove(get_quizzes(True)[int(input('What quiz would you like to delete? (Enter Number) ')) - 1])
                 except:
                     print(f'{red}Invalid Input{reset}')
 
@@ -123,3 +159,4 @@ def create_quiz_menu():
                 break
             case _:
                 print(f'{red}Invalid Input{reset}')
+
