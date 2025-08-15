@@ -13,17 +13,24 @@ def give_quiz(questions):
 
     return f'{points}/{total_points}'
 
+
+
 # Runs the main menu and enters the quiz
 def main():
     while True:
         print("-~-~-~-~- THE QUIZ GAME -~-~-~-~-")
 
-        if input('Enter Anything to Start (Type "Exit" to leave) ') == "Exit":
-            print("Exiting...")
+        print("1. Take Quiz \n2. Create Quiz \n3. Exit")
+        
+
+        selection = input("What would you like to do? (Enter Number) ")
+
+        if selection == "3":
+            print('Exiting')
             break
+        elif selection == '1':
+            questions = quiz.randomize_questions(quiz.get_questions("quiz_game/general_questions.csv"))
 
-        questions = quiz.randomize_questions(quiz.get_questions("quiz_game/general_questions.csv"))
-
-        print(give_quiz(questions))
+            print(give_quiz(questions))
 
 main()
