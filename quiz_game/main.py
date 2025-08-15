@@ -20,12 +20,12 @@ def main():
     while True:
         print("-~-~-~-~- THE QUIZ GAME -~-~-~-~-")
 
-        print("1. Take Quiz \n2. Create Quiz \n3. Exit")
+        print("1. Take Quiz \n2. Exit")
         
 
         selection = input("What would you like to do? (Enter Number) ")
 
-        if selection == "3":
+        if selection == "2":
             print('Exiting')
             break
         elif selection == '1':
