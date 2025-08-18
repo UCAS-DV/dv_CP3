@@ -35,8 +35,9 @@ def get_questions(filepath):
     questions = []
 
     with open(filepath, 'r') as question_file:
-        question_reader = csv.reader(question_file)
+        question_reader = csv.reader(question_file) 
 
+        print(question_reader)
         for question in question_reader:
 
             # Checks if question is actually header

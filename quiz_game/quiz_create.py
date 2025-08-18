@@ -6,13 +6,16 @@ from quiz import get_questions
 import os
 from pathlib import Path
 
+default_quizzes = ['quiz_game\quizzes\general_questions.csv',
+                   'quiz_game\quizzes\history_questions.csv']
+
 # Gets all quizzes in quizzes folder
 def get_quizzes(default_quizzes_off):
 
     quiz_filepaths = []
     for file in os.listdir("quiz_game/quizzes"):
         if default_quizzes_off:
-            if str(file) != 'general_questions.csv':
+            if str(file) not in default_quizzes:
                 quiz_filepaths.append(f'quiz_game/quizzes/{str(file)}')
         else:
             quiz_filepaths.append(f'quiz_game/quizzes/{str(file)}')
@@ -54,6 +57,7 @@ def create_question(filepath):
 
         question_writer.writerow(question)
 
+# Prints out questions and answers
 def list_questions(filepath):
     i = 0
     for question in get_questions(filepath):
@@ -67,6 +71,7 @@ def list_questions(filepath):
 
         print(f'{green}    Correct Answer: {question['answer']}{reset}')
 
+# Deletes question
 def delete_question(question_index, filepath):
 
     questions = get_questions(filepath)

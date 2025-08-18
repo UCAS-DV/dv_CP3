@@ -39,10 +39,10 @@ def main():
 
             display_quizzes(False)
 
-            try:
-                questions = randomize_questions(get_questions(get_quizzes(False)[int(input('What quiz would you like to take? (Enter Number) ')) - 1]))
-                print(give_quiz(questions))
-            except:
-                print(f'{red}Invalid Input{reset}')
+            #try:
+            questions = randomize_questions(get_questions(get_quizzes(False)[int(input('What quiz would you like to take? (Enter Number) ')) - 1]))
+            print(give_quiz(questions))
+            #except:
+            #    print(f'{red}Invalid Input{reset}')
 
 main()
