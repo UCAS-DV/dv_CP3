@@ -6,8 +6,11 @@ from quiz import get_questions
 import os
 from pathlib import Path
 
-default_quizzes = ['quiz_game\quizzes\general_questions.csv',
-                   'quiz_game\quizzes\history_questions.csv']
+default_quizzes = ['general_questions.csv',
+                   'math_questions.csv',
+                   'am_history_questions.csv',
+                   'history_questions.csv',
+                   'pop_culture_questions.csv']
 
 # Gets all quizzes in quizzes folder
 def get_quizzes(default_quizzes_off):
