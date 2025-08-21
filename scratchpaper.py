@@ -1,19 +1,39 @@
-import keyboard
+from tkinter import *
 
-x_cord = 0
-y_cord = 0
+Facts = ["""A man can be arrested in
+Italy for wearing a skirt in public.""",
+"""Obama was the first black president."""]
 
-true_x_cord = 0
-true_y_cord = 0
+root = Tk()
 
-speed = 5
-true_speed = speed * 0.0001
+# specify size of window.
+root.geometry("250x170")
 
-def main():
-    while True:
-        if keyboard.is_pressed("w"):
-            true_y_cord += true_speed
-        if keyboard.is_pressed("s"):
-            true_y_cord -= true_speed
-        if keyboard.is_pressed("a"):
-            true_x_cord -= true_speed
+# Create text widget and specify size.
+T = Text(root, height = 5, width = 52)
+
+# Create label
+l = Label(root, text = "Fact of the Day")
+l.config(font =("Courier", 14))
+
+def change_fact():
+    Facts[1]
+    # Insert The Fact.
+    T.insert(END, Facts[1])
+
+# Create button for next text.
+b1 = Button(root, text = "Next", command=change_fact)
+
+# Create an Exit button.
+b2 = Button(root, text = "Exit",
+            command = root.destroy) 
+
+l.pack()
+T.pack()
+b1.pack()
+b2.pack()
+
+# Insert The Fact.
+T.insert(END, Facts[0])
+
+mainloop()

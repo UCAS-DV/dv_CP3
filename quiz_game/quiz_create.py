@@ -8,7 +8,7 @@ from pathlib import Path
 
 default_quizzes = ['general_questions.csv',
                    'math_questions.csv',
-                   'am_history_questions.csv',
+                   'american_history_questions.csv',
                    'history_questions.csv',
                    'pop_culture_questions.csv']
 
