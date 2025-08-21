@@ -1,0 +1,13 @@
+C++:
+Type of Programming Language: Statically-Typed, Compiled, Lower-Level Language
+
+History: Created 1979 as a more adaptable version of C
+
+What's made with C++: Console Games, Operating Systems, Desktop Applications, PC Games
+
+Why use it instead of Python: Better at managing storage
+
+I set up my VS Code for C++
+
+Static Type:
+We tell the program what data type it's using.

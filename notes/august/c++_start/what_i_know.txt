@@ -1,0 +1,4 @@
+C++ is heavily based on the C language
+C++ uses pointers
+C++ uses curly brackets to differentiate functions, classes, loops, if-statements, etc. instead of indentation
+C++ is named C++ because "++" in the C language means "+1"
