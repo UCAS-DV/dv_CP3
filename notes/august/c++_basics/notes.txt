@@ -1,0 +1,45 @@
+Data Types:
+
+Holds Integers
+short - 2bytes - 32,768 either way
+int - 4bytes - 2 * 10^9 either way
+long - 4bytes - 2 * 10^9 either way 
+longlong - 8bytes - big #s
+
+Holds Decimals
+floats - 4 bytes - 3.4 * 10^38 either way
+doubles - 8 bytes - 1.7 * 10^308 either way
+
+bool - 1 byte - true/false
+char - 1 byte - single leter
+
+How are static and dynamically typed variables different?
+    Statically type variables need the variable type ot be specified.
+
+REMINDER: What is the difference between instantiating and declaring a variable?
+    Instantiating means to create a variable, declaring a variable means to give the variable its 
+    first value
+
+What case type should be used for c++ variables?
+    Snake Case should be used for c++ variables.
+
+What is the C++ standard library?
+    The C++ standard library is the repository of all of the pre-built stuff.
+
+How do you access the standard library?
+    To access the standard library, type #include and then the part of the library you want
+
+How do you create an output in C++?
+    Type "cout" and then "<<" then what you want to print.
+
+How do you create an input in C++?
+    First make an input, then type "cin" then ">>" then where you want your user input to go.
+
+What is the stream in C++?
+    The stream is the flow of information going in and out
+
+What is a constant?
+    A constant is a variable that never changes.
+
+Why do we write constants?
+    Constants are useful for variables that we do not need to change.
