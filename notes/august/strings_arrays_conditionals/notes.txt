@@ -2,24 +2,26 @@ What is Narrowing?
     Narrowing is taking a variable and putting it into a smaller variable
 
 What is a basic way to generate random numbers in C++?
-    
+    To generate random numbers in C++, use the current time as a seed for a random number generator
 
 What is an array?
-
+    An array is a collection of values with a set amount of values.
 
 How do I create an array?
-
+    To create an array, follow this format: data_type array_name[array_list];
 
 How do you make strings in C?
-
+    To create a string, create an array of characters.
 
 How did C++ improve creating strings?
-    
+    In C++, you can create a string by using the string class.
 
 How do I search a string?
-
+    To search a string, you can use .starts_with(), .ends_with(), .empty(), .front, .back
 
 How do I modify a string?
-
+    To modify a string, you can use .append, .insert, .clear, .replace
 
 What are some string methods?
+    Some string methods are .length, .starts_with, .ends_with, .empty, .front, .back, .append, 
+    .insert, .clear, .replace
