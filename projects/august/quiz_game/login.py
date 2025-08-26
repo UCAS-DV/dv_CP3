@@ -7,7 +7,7 @@ def read_file():
 
     profiles = []
 
-    with open('quiz_game/profiles.csv', 'r') as profile_file:
+    with open('projects/august/quiz_game/profiles.csv', 'r') as profile_file:
         profile_reader = csv.reader(profile_file) 
 
         for profile in profile_reader:

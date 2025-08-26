@@ -16,12 +16,12 @@ default_quizzes = ['general_questions.csv',
 def get_quizzes(default_quizzes_off):
 
     quiz_filepaths = []
-    for file in os.listdir("quiz_game/quizzes"):
+    for file in os.listdir("projects/august/quiz_game/quizzes"):
         if default_quizzes_off:
             if str(file) not in default_quizzes:
-                quiz_filepaths.append(f'quiz_game/quizzes/{str(file)}')
+                quiz_filepaths.append(f'projects/august/quiz_game/quizzes/{str(file)}')
         else:
-            quiz_filepaths.append(f'quiz_game/quizzes/{str(file)}')
+            quiz_filepaths.append(f'projects/august/quiz_game/quizzes/{str(file)}')
 
     return quiz_filepaths
 
@@ -133,7 +133,7 @@ def create_quiz_menu():
         match input('1. Create New Quiz \n2. Modify Quiz \n3. Delete Quiz \n4. Exit \nWhat would you like to do? (Enter Number) '):
             case '1':
 
-                quiz_name = f'quiz_game/quizzes/{input("What will you be naming this quiz? ")}.csv'
+                quiz_name = f'projects/august/quiz_game/quizzes/{input("What will you be naming this quiz? ")}.csv'
 
                 # Creates new quiz
                 open(quiz_name, 'x')
