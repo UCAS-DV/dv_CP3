@@ -1,0 +1,25 @@
+How are for loops constructed in C++
+    For loops are constructed with an iterator, condition to end, and a way to iterate the interator.
+
+When do you need to use curly brackets in C++
+    Curly brackets are used to seperate code blocks.
+
+How do you compare items in arrays
+    To compare items in arrays, loop through each item im each array and compare them.
+
+How do you use an array as an argument in a function
+
+
+What is type_t
+
+
+Why would we use type_t
+
+
+How do you search an array
+
+
+How do you sort an array
+
+
+How do you make a multi-dimensional array
