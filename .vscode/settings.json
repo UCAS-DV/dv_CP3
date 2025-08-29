@@ -26,6 +26,7 @@
         "streambuf": "cpp",
         "tuple": "cpp",
         "typeindex": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "iostream": "cpp"
     }
 }

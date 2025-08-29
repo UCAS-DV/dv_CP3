@@ -1,5 +1,6 @@
 How are for loops constructed in C++
-    For loops are constructed with an iterator, condition to end, and a way to iterate the interator.
+    For loops are constructed with an iterator, condition to end, and a way to iterate the 
+    interator.
 
 When do you need to use curly brackets in C++
     Curly brackets are used to seperate code blocks.
@@ -8,18 +9,21 @@ How do you compare items in arrays
     To compare items in arrays, loop through each item im each array and compare them.
 
 How do you use an array as an argument in a function
-
+    To use an array as an argument in a function, you have to define the length and the array.
 
 What is type_t
-
+    type_t is the biggest possible storage space.
 
 Why would we use type_t
-
+    We use type_t if we're not sure how much space we're going to need.
 
 How do you search an array
-
+    You can search an array with an algorithm like a linear search algorithm.
 
 How do you sort an array
-
+    To sort an array, you can use bubble sort. Bubble sort compares two numbers next to each other
+    and swaps them if necessary.
 
 How do you make a multi-dimensional array
+    To make a multi-dimensional array, write pairs of brackets for each dimension, 
+    and then the length of each dimension in each pair of brackets
