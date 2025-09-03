@@ -8,25 +8,26 @@ char board[3][3] = {
 };
 
 char numbered_board[3][3] = {
-    {'1','2','3'},
-    {'4','5','6'},
-    {'7','8','9'}
+    {'0','1','2'},
+    {'3','4','5'},
+    {'6','7','8'}
 };
 
 bool take_space(int space, char player){
+
     // IF space is taken, return false
-    if (board[space / 3][space - ((space / 3) * 3)] != '-'){
+    if (board[space / 3][space - (space / 3)] != '-'){
         return false;
     // ELSE, take space for player and return true
     } else{
-        board[space / 3][space - ((space / 3) * 3)] = player;
+        board[space / 3][space - (space / 3)] = player;
         return true;
     }
 }
 
 void print_board(bool numbered){
 
-    if (numbered = false){
+    if (numbered == false){
         for (int j = 0; j < 3; j++){
             cout << "|";
             for (int i = 0; i < 3; i++){
@@ -85,7 +86,8 @@ int main(){
     int my_num = rand() % 11;
 
     while (game_state == 0){
-        if (turn = -1){
+        
+        if (turn == -1){
             cout << "If you ever need to be reminded of the space number. Type '-1' to get the numbered board\n";
             print_board(true);
 
@@ -93,9 +95,12 @@ int main(){
             cin >> blank_input;
 
             turn = 0;
+            continue;
         }
-    
+
         if (turn % 2 == 0){
+
+            print_board(false);
             int player_move;
 
             cout << "What space would you like to take: ";
@@ -107,7 +112,7 @@ int main(){
             }
 
             if (take_space(player_move, 'X') == false){
-                cout << "Oops! Seems like that space is taken! Please try again.";
+                cout << "Oops! Seems like that space is taken! Please try again.\n";
                 continue;
             } else{
                 game_state == check_win('X');
