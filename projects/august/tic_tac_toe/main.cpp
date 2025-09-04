@@ -121,7 +121,7 @@ int main(){
     while (game_state == 0){
         
         if (turn == -1){
-            cout << "If you ever need to be reminded of the space number. Type '-1' to get the numbered board\n";
+            cout << "Type the number of the space you want to place your X. \nIf you ever need to be reminded of the space number. Type '-1' to get the numbered board\n";
             print_board(true);
 
             cout << "If you understand, enter anything. ";
