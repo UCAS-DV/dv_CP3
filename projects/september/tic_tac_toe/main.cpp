@@ -15,16 +15,38 @@ char numbered_board[3][3] = {
 
 bool take_space(int space, char player){
 
-    // IF space is taken, return false
-    if (board[space / 3][space - (space / 3)] != '-'){
-        return false;
-    // ELSE, take space for player and return true
-    } else{
-        board[space / 3][space - (space / 3)] = player;
-        return true;
+    // IF space is in 0 through 2, place a square in the bottom row
+    if (space >= 0 && space <= 2){
+        if (board[0][space] != '-')
+            return false;
+        else {
+            board[0][space] = player;
+            return true;
+        }   
+        
+    // IF space is in 3 through 5, place a square in the bottom row
+    } else if (space >= 3 && space <= 5){
+        if (board[1][space - 3] != '-')
+            return false;
+        else {
+            board[1][space - 3] = player;
+            return true;
+        }            
+
+    // IF space is in 6 through 8, place a square in the bottom row
+    } else if (space >= 6 && space <= 8){
+        if (board[2][space - 6] != '-')
+            return false;
+        else {
+            board[2][space - 6] = player;
+            return true;
+        } 
     }
+
+    return false;
 }
 
+// Prints board. IF numbered is true, it'll print the numbered board, if not, it'll print the game board.
 void print_board(bool numbered){
 
     if (numbered == false){
@@ -46,32 +68,43 @@ void print_board(bool numbered){
     }
 }
 
-int check_win(char player){
-    char completed_row[] = {player, player, player};
+// Figures out whether a player has won. IF they have, return 1, if not, return 0
+int check_win(char player, int return_num){
 
+    bool space_open = false;
     // CHECK each row. IF row equals completed row, return 1
     for (int i = 0; i < 3; i++){
-        char board_row[] = {board[i][0], board[i][1], board[i][2]};
 
-        if (board_row == completed_row)
-            return 1;
+        if (board[i][0] == player && board[i][1] == player && board[i][2] == player)
+            return return_num;
                     
     }
 
+    // IF player has column, mark as victory
     for (int i = 0; i < 3; i++){
         if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] == player)
-            return 1;    
+            return return_num;    
         }
 
-    if (board[0][0] == board[1][1] and board[1][1] == board[2][2] and board[0][0] == player)
-        return 1;
-    else if (board[0][2] == board[1][1] and board[1][1] == board[2][0] and board[0][2] == player)
-        return 1;
+    // IF player has a diagonal, mark as victory
+    if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] == player)
+        return return_num;
+    else if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] == player)
+        return return_num;
+    
+    for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+            if (board[i][j] == '-'){
+                space_open = true;
+            }
+        }
+    }
 
-    return 0;
-}
-
-
+    if (space_open == true)
+        return 0;
+    else
+        return 3;
+}   
 
 int main(){
 
@@ -79,7 +112,7 @@ int main(){
     int turn = -1;
     int game_state = 0;
 
-    cout << "-~-~-~-~-~-~-~-~Tic/Tac/Toe-~-~-~-~-~-~-~-~\n";
+    cout << "\n-~-~-~-~-~-~-~-~Tic/Tac/Toe-~-~-~-~-~-~-~-~\n";
 
     int seconds = time(nullptr);
     srand(seconds);
@@ -88,7 +121,7 @@ int main(){
     while (game_state == 0){
         
         if (turn == -1){
-            cout << "If you ever need to be reminded of the space number. Type '-1' to get the numbered board\n";
+            cout << "Type the number of the space you want to place your X. \nIf you ever need to be reminded of the space number. Type '-1' to get the numbered board\n";
             print_board(true);
 
             cout << "If you understand, enter anything. ";
@@ -98,6 +131,7 @@ int main(){
             continue;
         }
 
+        // Player Turn
         if (turn % 2 == 0){
 
             print_board(false);
@@ -111,35 +145,50 @@ int main(){
                 continue;
             }
 
-            if (take_space(player_move, 'X') == false){
+            if (player_move >= 0 && player_move <= 8){
+                if (take_space(player_move, 'X') == false){
                 cout << "Oops! Seems like that space is taken! Please try again.\n";
                 continue;
-            } else{
-                game_state == check_win('X');
-                turn += 1;
+                } else{
+                    game_state = check_win('X', 1);
+                    turn += 1;
+                    continue;
+                }
             }
-        } else {
-
+            
+        } 
+        // CPU Turn
+        else {
+            
+            // Set random number
             int seconds = time(nullptr);
             srand(seconds);
             int rand_int = rand() % 9;
 
+            game_state = check_win('O', 2);
+            
+            if (game_state == 3 || game_state == 2){
+                continue;
+            }
+
             if (take_space(rand_int,'O') == false)
                 continue;
             else {
-                game_state = check_win('O');
-
+                game_state = check_win('O', 2);
                 turn += 1;
+                continue;
             }
         }
-
-        print_board(false);
     }
+
+    print_board(false);
 
     if (game_state == 1)
         cout << "You Won!";
     else if (game_state == 2)
         cout << "CPU Won!";
+    else if (game_state == 3)
+        cout << "Tie!";
 
     return 0;
 }
