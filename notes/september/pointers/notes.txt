@@ -1,0 +1,46 @@
+What is a pointer?
+    A pointer is a variable that stores a memory address of another variable.
+
+Why do we use pointers?
+    We use pointers because sometimes it's easier to work with a memory address.
+
+How do I create a pointer
+    To create a pointer, you create a pointer variable with an astrisk and set it to 
+    the address of a variable using an &.
+
+What is indirection or de-referencing?
+    De-referencing is when you access the value of an address.
+
+What are constant pointers? How are the different types used?
+    Constant pointers are pointers where the location and or the value at the location cannot be 
+    changed.
+
+How do you pass a pointer into a function?
+    To pass a pointer into a function, treat it like any other variable but add an astrisk to the end
+    of the data type.
+
+Why would you pass a pointer to a function?
+    You would pass a pointer into a function to avoid giving the function an unnecessary ammount
+    of information.
+
+How do you compare pointers?
+    You can compare pointers using the typical comparision operators.
+
+What is dynamic memory allocation?
+    Dynamic memory allocation is allocating a set amount of space for a variable then adding more 
+    space when necessary.
+
+What is the Stack?
+    The stack is an area of memory used for managing function calls, local variables, and control 
+    flow. It is managed by the compiler for fast allocation of memory.
+
+What is the Heap?
+    The heap is an area of memory used for dynamic memory. It stores data if the size is unknown at 
+    the time of compiling. Memory must be manually managed by the program. The head is used for 
+    flexible long-lived storage of complex data structures, objects, and large files.
+
+What are smart pointers?
+    Smart pointers are pointers that work like variables on the stack instead of in the heap.
+    There are two types of smart pointers, unique pointers that owns part of the memory and prevents
+    anything else from using it, and shared pointers that allows multiple pointers to point at the 
+    same thing
