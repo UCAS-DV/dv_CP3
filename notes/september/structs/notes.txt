@@ -1,0 +1,17 @@
+What are structures?
+    Structures are a custom abstract data type.
+
+How do you build a structure?
+    You build a structure by writing the keyword "struct", giving the struct a name, then writing 
+    the different.
+
+What can be held in a structure?
+    All data types can be held in a structure.
+
+How do you access the information in a structure?
+    You can access the information in a structure by writing the variable name, adding a dot, and 
+    then the property.
+
+How do you overload an operator
+    You overload an operator by creating instructions for that operator to follow when taking
+    in a struct.
