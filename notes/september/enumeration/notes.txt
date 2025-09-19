@@ -1,0 +1,23 @@
+What is enumeration?
+    Enumeration
+
+How do you build enumeration?
+    We build enumerator by using the enum keyword, and then listing each value.
+
+How do we compare our enumerator? 
+    We compare enums using the equals operator.
+
+Why does it matter that enumerators are constants?
+    It's because you can't change the value of enums.
+
+What is the default beginning enumerator? 
+    The default value is 0.
+
+How do you give a different default value?
+    You use the assignment operator.
+
+What is a strongly typed enumerator?
+    Strongly typed enumerator is an enumerator that can't be duplicated.
+
+How are strongly typed enumerators different from a normal one?
+    Strongly typed enumerators don't 
