@@ -23,8 +23,10 @@ int main(){
         "4. Division\n" <<
         "5. Exit\n" <<
         "Select: ";
-
-        cin >> input;
+        
+        while (!(cin >> input)){
+            cin >> input;
+        }
 
         if (input == Operator::Add){
             double addend_1;
