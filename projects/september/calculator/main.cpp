@@ -10,16 +10,11 @@ enum Operator{
     Divide
 };
 
-double add(double operand_1, double operand_2){
-    return operand_1 + operand_2;
-}
-
 int main(){
 
     while (true){
 
         int input;
-        int empty;
 
         cout <<
         "1. Addition\n" <<
@@ -45,14 +40,37 @@ int main(){
             double minuend;
             double subtrahend;
 
-            cout << "Enter first addend: ";
+            cout << "Enter the minuend: ";
             cin >> minuend;
-            cout << "Enter second addend: ";
+            cout << "Enter the subtrahend: ";
             cin >> subtrahend;
 
             cout << minuend << " - " << subtrahend << " = " << minuend - subtrahend << endl;
+        } else if (input == Operator::Multiply){
+            double factor_1;
+            double factor_2;
+
+            cout << "Enter first factor: ";
+            cin >> factor_1;
+            cout << "Enter second factor: ";
+            cin >> factor_2;
+
+            cout << factor_1 << " * " << factor_2 << " = " << factor_1 * factor_2 << endl;
+        } else if (input == Operator::Divide){
+            double dividend;
+            double divisor;
+
+            cout << "Enter dividend: ";
+            cin >> dividend;
+            cout << "Enter divisor: ";
+            cin >> divisor;
+
+            cout << dividend << " / " << divisor << " = " << dividend / divisor << endl;
+        } else if (input == 5) {
+            break;
+        } else {
+            cout << "Not a valid input" << endl;
         }
-            
     }
 
     return 0;
