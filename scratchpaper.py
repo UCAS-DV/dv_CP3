@@ -37,3 +37,5 @@ b2.pack()
 T.insert(END, Facts[0])
 
 mainloop()
+
+#Pokemon Black & White N's Farewell
