@@ -29,25 +29,35 @@ enum class Options{
 };
 
 Type president = {"President", "Prime Minister"};
-Type prime_minister = {"Prime Minister", "President"};
-Type revolutionary = {"Revolutionary", "Lame-o"};
+Type prime_minister = {"Prime Minister", "King"};
+Type revolutionary = {"Revolutionary", "General"};
+Type general = {"General", "President"};
+Type monarch = {"Monarch", "Revolutionary"};
 
 Attack executive_order = {"Executive Order", 15};
 Attack rally = {"Rally", 10};
 Attack tackle = {"Tackle", 25};
+Attack airstrike = {"Air Strike", 35};
+Attack naval_invade = {"Naval Invade", 30};
+Attack tax = {"Tax", 50};
 
 // Presidents
-Character de_gaulle = {"Charles De Gaulle", 50, 50, {executive_order, rally, tackle}, 0, president};
-Character jackson = {"Andrew Jackson", 1, 1, {executive_order, rally, tackle}, 0, president};
+Character de_gaulle = {"President Charles De Gaulle", 50, 50, {executive_order, rally, tackle}, 0, president};
+Character jackson = {"President Andrew Jackson", 1, 1, {executive_order, rally, tackle}, 0, president};
 
 // Prime Minster
-Character thatcher = {"Margaret Thatcher", 50, 50, {executive_order, rally, tackle}, 0, prime_minister};
-Character churchill = {"Winston Churchill", 1, 1, {executive_order, rally, tackle}, 0, prime_minister};
+Character thatcher = {"Prime Minister Margaret Thatcher", 80, 80, {executive_order, rally, tackle}, 0, prime_minister};
+Character churchill = {"Prime Minister Winston Churchill", 70, 70, {executive_order, rally, tackle}, 0, prime_minister};
 
-// Chancellor
+// Generals
+Character isenhower = {"General Dwight D. Isenhower", 100, 100, {rally, airstrike, naval_invade}, 0, general};
+Character napolean = {"General Napolean Bonnapart", 25, 25, {rally, airstrike, naval_invade}, 0, general};
 
+// Monarchs
+Character henry = {"King Henry VIII", 150, 150, {rally, executive_order, tax}, 0, monarch};
+Character wilhelm = {"Kaiser Wilhelm II", 50, 50, {rally, executive_order, tax}, 0, monarch};
 
-vector<Character> wild_character = {washington};
+vector<Character> wild_character = {de_gaulle, jackson, thatcher, churchill, isenhower, napolean, henry, wilhelm};
 vector<Character> party;
 
 bool operator>(const Type& type_1, const Type& type_2)
