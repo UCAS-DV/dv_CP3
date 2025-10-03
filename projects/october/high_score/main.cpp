@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <fstream>
 
 using namespace std;
@@ -50,6 +51,32 @@ int main(){
             case 2:{
                 ifstream text_file("high_scores.txt");
                 string line;
+                vector<Score> scores;
+
+                if (text_file.is_open()) {
+                    while (getline(text_file, line)) {
+                        stringstream ss(line);
+                        string part;
+                        Score score;
+
+                        getline(ss, score.player, ',');      
+                        getline(ss, part, ','); 
+                        score.score = stoi(part);
+                        getline(ss, part, ','); 
+                        score.date.month = stoi(part);
+                        getline(ss, part, ','); 
+                        score.date.day = stoi(part);
+                        getline(ss, part, ','); 
+                        score.date.year = stoi(part); 
+
+                        scores.push_back(score);
+                    }
+                    text_file.close();
+                } 
+                
+                for (Score score : scores){
+                    cout << score.player << "|" << score.score << "|" << score.date.month << "/" << score.date.day << "/" << score.date.year << "\n";
+                }
                 
             }
             case 3:{
