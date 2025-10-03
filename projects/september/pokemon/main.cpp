@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 struct Attack {
@@ -188,7 +189,10 @@ void battle(Character player_character, Character enemy_character){
 
 int main(){
 
+    vector<Pokemon> party;
+
     bool in_game = true;
+    int hiding_pokemon_index = 0;
 
     while (in_game){
 
@@ -200,11 +204,11 @@ int main(){
         cout << "\n1. Explore \n2. Battle \n3. Heal Characters \n4. Exit \nEnter the number of the option you wish to select: ";
         cin >> selected_option;
 
-        switch (static_cast<Options>(selected_option))
+
+        switch (selected_option)
         {
-            case Options::Explore:{
-                int wild_character_index = rand() % wild_characters.size();
-                wild_character_index = explore(wild_character_index);
+            case Options::Explore:
+                /* code */
                 break;
             }
             case Options::Battle:{
