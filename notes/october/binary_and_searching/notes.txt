@@ -14,34 +14,34 @@ How do you extract specific information from a string in programming?
     You use the input operator.
 
 When a title contains a space, which function should you use to read it properly?
-
+    Use scanf().
 
 Why might extra zeros be added to a string when converting a value without control?
-
+    It adds extra zeros because it's filling in for the spaces that are implied to be 0.
 
 How does controlling the string conversion process benefit your program?
-
+    It benefits your program by giving you more control of the outputs.
 
 Give an example scenario where parsing a string would be necessary in a program.
-
-
+    Parsing would be useful for converting text files or CSVs into data.
 
 When writing to a binary file, what does the first parameter (reinterpret_cast<char*>(&numbers)) represent?
-
+    The first parameter represent the conversion between binary and the data types.
 
 Why does the binary file only take 12 bytes while the array of integers might be larger?
-
+    It takes up less space because it is in binary.
 
 What is the main difference between sequential search and binary search?
-
+    Sequential search works for ordered and unorderd lists and binary search only works for ordered lists.
 
 In which type of data structure is binary search most efficient?
-
+    Binary search is most efficient when the list is ordered.
 
 What is a key requirement for binary search to work correctly on a list?
-
+    The key requirement is that the list is ordered.
 
 How does sequential search find an item in a list?
-
+    It finds an item by going through every item up until the item.
 
 Why is binary search generally faster than sequential search for large, sorted lists?
+    It's faster because it goes through less items.
