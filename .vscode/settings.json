@@ -27,6 +27,8 @@
         "tuple": "cpp",
         "typeindex": "cpp",
         "valarray": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iomanip": "cpp",
+        "regex": "cpp"
     }
 }
