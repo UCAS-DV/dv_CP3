@@ -207,7 +207,7 @@ int main(){
 
         switch (selected_option)
         {
-            case Options::Explore:
+            case Options::Explore:{
                 /* code */
                 break;
             }
