@@ -63,6 +63,9 @@ int main(){
 
             movies.push_back(movie);
         }
+    } else {
+        cout << "Could not open movies.csv" << endl;
+        cout << "Make sure the file is in the working directory." << endl;
     }
     
     file.close();
@@ -83,10 +86,84 @@ int main(){
                 break;
             }
             case Options::Add:{
+                Movie new_movie;
+                
+                cin.ignore(); // Clear the newline left from the menu selection
 
+                cout << "\nEnter movie title: ";
+                getline(cin, new_movie.name);
+                
+                cout << "Enter director: ";
+                getline(cin, new_movie.director);
+                
+                cout << "Enter release year: ";
+                getline(cin, new_movie.year);
+                
+                cout << "Enter first movie genre: ";
+                getline(cin, new_movie.genre1);
+                
+                cout << "Enter second movie genre: ";
+                getline(cin, new_movie.genre2);
+                
+                cout << "Enter movie rating: ";
+                getline(cin, new_movie.rating);
+
+                movies.push_back(new_movie);
+
+                ofstream outfile("C:/Users/Darius Vaiaoga/Desktop/dv_CP3/projects/october/movie_library/movies.csv");
+
+                if (outfile.is_open()){
+                    outfile << "Movie Name,Director,Year,Genre,Rating" << endl;
+
+                    for (Movie movie : movies){
+                        outfile << movie.name << "," 
+                        << movie.director << "," 
+                        << movie.year << "," 
+                        << movie.genre1 << "/" 
+                        << movie.genre2 << "," 
+                        << movie.rating << endl;
+                    }
+                    outfile.close();
+                    cout << "\n" << new_movie.name << " has been added to the library!\n" << endl;
+                } else {
+                    cout << "Error: Could not save to file." << endl;
+                }
+
+                break;
             }
             case Options::Delete:{
+                string movie_to_delete;
 
+                cin.ignore(); // Clear the newline left from the menu selection
+
+                cout << "\nEnter title of movie to delete: ";
+                getline(cin, movie_to_delete);
+
+                for(int i = 0; i < movies.size(); i++){
+                    if(movies[i].name == movie_to_delete){
+                        movies.erase(movies.begin() + i);
+                        break;
+                    }
+                }
+
+                ofstream outfile("C:/Users/Darius Vaiaoga/Desktop/dv_CP3/projects/october/movie_library/movies.csv");
+    
+                if (outfile.is_open()){
+                    outfile << "Movie Name,Director,Year,Genre,Rating" << endl;
+                    
+                    for (Movie movie : movies){
+                        outfile << movie.name << "," 
+                        << movie.director << "," 
+                        << movie.year << "," 
+                        << movie.genre1 << "/" 
+                        << movie.genre2 << "," 
+                        << movie.rating << endl;
+                    }
+                    outfile.close();
+                    cout << "\n\"" << movie_to_delete << "\" has been deleted from the library!\n" << endl;
+                }
+
+                break;
             }
             case Options::Search:{
                 cout << "1. Search by Title\n2. Search by Director\n3. Search by Year\n4. Search by Genre\n5. Search by Rating\nEnter the number of the option to select: ";
@@ -98,11 +175,10 @@ int main(){
                 {
                     case 1:{
                         cout << "Search Title (Make sure to watch out for capitalization and spelling): ";
-                        cin >> search_term;
-
+                        getline(cin, search_term);
 
                         for (Movie movie : movies){
-                            
+                                
                             int search_int = movie.name.find(search_term);
                             if (search_int != string::npos){
                                 print_movie(movie);
@@ -113,7 +189,7 @@ int main(){
                     }
                     case 2:{
                         cout << "Search Director (Make sure to watch out for capitalization and spelling): ";
-                        cin >> search_term;
+                        getline(cin, search_term);
 
 
                         for (Movie movie : movies){
@@ -128,7 +204,7 @@ int main(){
                     }
                     case 3:{
                         cout << "Search Year: ";
-                        cin >> search_term;
+                        getline(cin, search_term);
 
 
                         for (Movie movie : movies){
@@ -143,7 +219,7 @@ int main(){
                     }
                     case 4:{
                         cout << "Search Genre: ";
-                        cin >> search_term;
+                        getline(cin, search_term);
 
 
                         for (Movie movie : movies){
@@ -161,8 +237,7 @@ int main(){
                     }
                     case 5:{
                         cout << "Search Rating: ";
-                        cin >> search_term;
-
+                        getline(cin, search_term);
 
                         for (Movie movie : movies){
                             
@@ -175,6 +250,8 @@ int main(){
                         break;
                     }
                 }
+
+                break;
             }
             case Options::Exit:{
                 open = false;
