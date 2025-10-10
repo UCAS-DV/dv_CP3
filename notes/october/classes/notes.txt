@@ -1,0 +1,44 @@
+What is a class?
+    A class is a type of object.
+
+What is an object?
+    An object is an instance of a class.
+
+How is a class a form of encapsulation?
+    Classes are a form of encapsulation because include everything about an object an putting it in one place.
+
+How is a class an abstraction of an object?
+    Classes are abstractions of objects because they are simplifications of objects. 
+
+How do you access information in an object?
+    You access information in an object by using a dot.
+
+How do you initialize a class?
+    You initialize a class in the same way you initialize a function, minus the parentheses.
+
+How do you set a default value 
+    To set a default value, you set the default when defining the attribute.
+
+How do you use type hinting?
+    You use type hinting to ensure the type of variable or function.
+
+How do you set an attribute to be private?
+    You set an attribute to be private, you add an underscore before the variable name.
+
+How do you make a class method?
+    You make a class method in the same way you create a function, but inside of a class.
+
+Why do we include docstrings?
+    Doc strings are strings used to document what is going on in a program.
+
+What does "self" do as a parameter for class methods?
+    Self tells the class to do something on the current instance.
+
+What are getter and setter methods?
+    Getter methods get the value of attributes while setter methods set the value of attributes.
+
+What are magic methods?
+    A magic method is a built in method with two underscores at the beginning and end.
+
+Where are class objects saved? (heap or stack?)
+    Classes are saved on the heap.
